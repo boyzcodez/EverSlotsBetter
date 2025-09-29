@@ -12,6 +12,27 @@
     font-style: normal;
 }
 
+/* button */
+.pixel-button{
+  width: 64px;
+  height: 64px;
+  border: none;
+  background: url('assets/unpressedbutton1.png') no-repeat center/contain;
+  cursor: pointer;
+  image-rendering: pixelated;
+
+  /* clip-path: polygon(
+  15.625% 31.25%,
+  35.94% 31.25%,
+  35.94% 56.25%,
+  15.625% 56.25%
+  ); */
+}
+
+.pixel-button:hover {
+  background-image: url('assets/unpressedbutton2.png');
+}
+/* */
 
 body {
   font-family: "MyFont", sans-serif;
@@ -141,6 +162,7 @@ body {
   padding: 20px;
   border-radius: 8px;
   color: #ff8274;
+  text-align: center;
 }
 
 .side-container {
