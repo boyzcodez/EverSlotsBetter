@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Title</title>
+  <title>EverSlots</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,7 +22,7 @@
     <div class="drawer-side-container">
       <button class="drawer-section-toggle">Left Section</button>
       <div class="drawer-section-content">
-        <p>This has left container text.</p>
+        <p>Quick links and info.</p>
       </div>
     </div>
 
@@ -32,31 +32,84 @@
         <p>This has right container text.</p>
       </div>
     </div>
+    <!-- Paytable inside the drawer for mobile/compact view -->
+    <div class="drawer-side-container">
+      <button class="drawer-section-toggle">Paytable</button>
+      <div class="drawer-section-content">
+        <div class="info-container">
+          <h2>Paytable</h2>
+          <div class="paytable"></div>
+        </div>
+      </div>
+    </div>
   </nav>
 
   <!-- Page Content -->
   <div class="content">
     <!-- Top Section -->
     <header class="top-section">
-      <h1>Title</h1>
+      <div class="header-inner">
+        <div class="header-left">
+          <img src="pictures/Star.png" alt="star" class="header-icon">
+        </div>
+        <div class="header-center">
+          <h1>EverSlots</h1>
+          <div class="subtitle">Retro pixel slots — press Play!</div>
+        </div>
+        <div class="header-right">
+          <img src="pictures/Seven.png" alt="seven" class="header-icon">
+        </div>
+      </div>
     </header>
 
     <!-- Middle Section -->
     <main class="middle-section">
-      <div class="side-container left-container">
-        <p>This has left container text.</p>
-      </div>
+      <!-- left sidebar removed: paytable now shown inside the main area and drawer -->
+      <!-- Main center area containing the game -->
       <div class="center-container">
-        <p>Main center content</p>
-        <button class="pixel-button"></button>
+        <div class="game-wrapper">
+          <div class="main-container">
+            <div class="top-container">
+              <div class="stat-box top-left">
+                <div class="stat-label">Points</div>
+                <div class="stat-value"><span id="balance">0</span></div>
+                <div class="stat-sub">Coins: <span id="coins">0</span> | Rolls: <span id="rollsLeft">3</span></div>
+              </div>
+              <div class="stat-box top-right">
+                <div class="stat-label">Score to Beat</div>
+                <div class="stat-value"><span id="scoreToBeat">200</span></div>
+              </div>
+            </div>
+
+            <div id="slots" class="slots"></div>
+            
+            <div class="play-area">
+              <button id="playButton" class="play-hub" aria-label="Play" title="Play">
+                <span class="play-icon" aria-hidden="true">▶</span>
+                <span class="play-text">PLAY</span>
+              </button>
+              <!-- <div class="pixel-label">Play</div> -->
+            </div>
+
+          </div>
+        </div>
       </div>
-      <div class="side-container right-container">
-        <p>This has right container text.</p>
-      </div>
+
+      <!-- Paytable has been moved to the drawer (hamburger). side paytable removed. -->
+      <!-- Right container removed — center expands to occupy space -->
     </main>
 
     <!-- Bottom Section -->
-    <footer class="bottom-section"></footer>
+    <footer class="bottom-section">
+      <div class="footer-inner">
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <span class="sep">|</span>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-credit">Made with <span class="heart">♥</span> • <span id="version">v1.0</span></div>
+      </div>
+    </footer>
   </div>
 
   <script src="script.js"></script>
