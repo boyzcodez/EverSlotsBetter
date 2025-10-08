@@ -392,6 +392,34 @@ body {
   gap: 10px;
 }
 
+/* Inline toast for notifications (placed inside .middle-section) */
+.game-toast {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 240px;
+  max-width: 640px;
+  background: rgba(10,10,10,1.0);
+  color: var(--c27);
+  padding: 12px 18px;
+  border-radius: 12px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.6);
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+.game-toast.success { border: 2px solid rgba(40,200,40,1); background: linear-gradient(180deg, rgba(34,120,40,1), rgba(10,10,10,0.9)); }
+.game-toast.fail { border: 2px solid rgba(200,40,40,1); background: linear-gradient(180deg, rgba(120,40,40,1), rgba(10,10,10,0.9)); }
+.game-toast[hidden] { display: none; }
+
+@media (max-width: 720px) {
+  .game-toast { left: 12px; transform: none; right: 12px; min-width: unset; }
+}
+
 /* (compact-paytable styles removed) */
 
 .paytable-item {

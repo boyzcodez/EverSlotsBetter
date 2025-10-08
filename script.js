@@ -86,14 +86,14 @@ if (bellBoostBtn) {
   bellBoostBtn.addEventListener("click", () => {
     // Use the symbol name key as defined in symbolWeights
     if (typeof symbolWeights["Bell"] === 'number') symbolWeights["Bell"] *= 2;
-    alert("Bell odds doubled!");
+    showToast("Bell odds doubled!", 'success');
   });
 }
 
 const specialBtn = document.getElementById("specialButton");
 if (specialBtn) {
   specialBtn.addEventListener("click", () => {
-    alert("Global special odds are now per-symbol via bonus icons.");
+    showToast("Global special odds are now per-symbol via bonus icons.", 'success');
   });
 }
 
@@ -101,8 +101,26 @@ const bonusBoostBtn = document.getElementById("bonusBoostButton");
 if (bonusBoostBtn) {
   bonusBoostBtn.addEventListener("click", () => {
     globalBonusBoost += 0.1;
-    alert(`Bonus effectiveness increased (x${globalBonusBoost.toFixed(1)})`);
+    showToast(`Bonus effectiveness increased (x${globalBonusBoost.toFixed(1)})`, 'success');
   });
+}
+
+// Inline non-blocking toast for notifications
+function showToast(message, type = 'info', timeout = 3000) {
+  const toast = document.getElementById('game-toast');
+  if (!toast) { // fallback
+    alert(message);
+    return;
+  }
+  toast.textContent = message;
+  toast.classList.remove('success', 'fail');
+  if (type === 'success') toast.classList.add('success');
+  if (type === 'fail') toast.classList.add('fail');
+  toast.hidden = false;
+  clearTimeout(toast._hideTimer);
+  toast._hideTimer = setTimeout(() => {
+    toast.hidden = true;
+  }, timeout);
 }
 
 // === HELPERS ===
@@ -282,13 +300,13 @@ async function finishSpin(outcomes) {
   // Game progression after animations
   if (points >= scoreToBeat) {
     await delay(800);
-    alert(`🎉 You beat ${scoreToBeat}!`);
+    showToast(`🎉 You beat ${scoreToBeat}!`, 'success', 4000);
     points = 0;
     scoreToBeat = Math.round(scoreToBeat * 1.3);
     rollsLeft = maxRolls;
   } else if (rollsLeft === 0) {
     await delay(800);
-    alert(`💀 Failed to beat ${scoreToBeat}. Game reset.`);
+    showToast(`💀 Failed to beat ${scoreToBeat}. Game reset.`, 'fail', 4500);
     points = 0;
     coins = 0;
     scoreToBeat = 200;
