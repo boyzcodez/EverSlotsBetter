@@ -264,6 +264,8 @@ body {
   justify-items: center;
 }
 
+.middle-section { position: relative; }
+
 .side-container {
   width: 100%;
 }
@@ -335,6 +337,27 @@ body {
   align-items: flex-start;
   gap: 30px;
   margin-top: 36px;
+}
+
+/* Decorative side GIFs next to center-container */
+.side-gif {
+  position: absolute;
+  top: 35%;
+  height: 25%; /* match the full height of middle-section */
+  width: auto;
+  image-rendering: pixelated; /* keep GIF crisp */
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 10px 24px rgba(0,0,0,0.45));
+}
+.side-gif.left { left: 5%; transform-origin: left center; }
+.side-gif.right { right: 5%; transform-origin: right center; }
+
+/* scale up pixel art GIFs while preserving aspect ratio */
+.side-gif { transform: translateY(0) scale(3); }
+
+@media (max-width: 1200px) {
+  .side-gif { display: none; }
 }
 
 .play-area {

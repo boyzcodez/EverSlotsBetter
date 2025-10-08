@@ -412,3 +412,24 @@ function renderPaytable() {
 
 // Run this once on startup
 renderPaytable();
+
+// Attempt to load decorative side GIFs by testing candidate filenames listed in data-candidates
+function loadSideGifs() {
+  ['side-left','side-right'].forEach(id => {
+    const img = document.getElementById(id);
+    if (!img) return;
+    const candidates = (img.dataset.candidates || '').split(',').map(s => s.trim()).filter(Boolean);
+    for (const name of candidates) {
+      const url = `pictures/${name}`;
+      const tester = new Image();
+      tester.onload = () => { img.src = url; img.hidden = false; };
+      tester.onerror = () => { /* try next */ };
+      tester.src = url;
+      // stop iterating once src is set (onload will have already run or will run)
+      if (!img.hidden) break;
+    }
+  });
+}
+
+// kick off after a short delay to avoid blocking initial render
+setTimeout(loadSideGifs, 120);
