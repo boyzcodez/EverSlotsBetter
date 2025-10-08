@@ -107,11 +107,10 @@ body {
   background: var(--c22);
 }
 
-/* Drawer side container sections (mobile only) */
+/* Drawer side container sections (show inside drawer on all sizes) */
 .drawer-side-container {
-  display: none; /* hidden on desktop */
+  display: block; /* visible inside the drawer on desktop and mobile */
   margin: 10px 0;
-  
 }
 
 .drawer-section-toggle {
