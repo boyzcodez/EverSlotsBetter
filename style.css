@@ -73,7 +73,8 @@ body {
   top: 0;
   left: 0;
   height: 100%;
-  width: 260px;
+  /* responsive drawer width: comfortable on desktop, still fits small screens */
+  width: min(360px, 92%);
   background: var(--c20); /* dark background */
   color: var(--c27); /* light text */
   transform: translateX(-100%);
@@ -139,8 +140,9 @@ body {
 }
 
 .drawer-section-content.open {
-  max-height: 300px; /* enough for text */
-  padding: 10px 20px;
+  /* allow more vertical space for paytable / content when opened */
+  max-height: 480px;
+  padding: 12px 20px;
 }
 
 /* Page content */
@@ -569,6 +571,8 @@ button:hover { background: var(--c36); }
     display: block;
   }
   /* Make drawer paytable items smaller to fit */
-  .drawer .info-container { width: auto; padding: 10px; }
-  .drawer .paytable-item img { width: 28px; height: 28px; }
+  /* Drawer-specific paytable sizing so items fit comfortably */
+  .drawer .info-container { width: 100%; max-width: 320px; padding: 12px; box-sizing: border-box; }
+  .drawer .paytable-item { padding: 8px 10px; }
+  .drawer .paytable-item img { width: 36px; height: 36px; }
 }
