@@ -38,14 +38,46 @@
   <div class="content">
     <!-- Top Section -->
     <header class="top-section">
-      <h1>Contact</h1>
+      <div class="header-inner">
+        <div class="header-left"><img src="pictures/Cherry.png" alt="logo" class="header-icon"></div>
+        <div class="header-center"><h1>Contact</h1><div class="subtitle">Questions, feedback or bug reports</div></div>
+        <div class="header-right"><img src="pictures/Watermelon.png" alt="watermelon" class="header-icon"></div>
+      </div>
     </header>
 
     <!-- Middle Section -->
     <main class="middle-section">
-      <div class="center-container">
-        <p>Contact Page Content</p>
-      </div>
+  <section class="info-container page-content">
+          <h2>Get in touch</h2>
+          <p>If you'd like to report a bug, suggest a feature, or just say hello, send a short message using the form below or use one of the alternative contact options.</p>
+
+          <form id="contactForm" class="contact-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Thanks! This demo doesn\'t submit mail.');">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell us about the bug or your idea" required></textarea>
+
+            <div style="display:flex;gap:10px;align-items:center;margin-top:8px;">
+              <button type="submit">Send Message</button>
+              <button type="reset">Reset</button>
+            </div>
+          </form>
+
+          <h3>Alternative contact</h3>
+          <p>Email: <a href="mailto:hello@everslots.example">hello@everslots.example</a></p>
+          <p>Repository / Issues: <em>Use your project's issue tracker</em></p>
+
+          <h3>What to include in a bug report</h3>
+          <ul>
+            <li>Browser and OS (e.g., Chrome on Windows 10).</li>
+            <li>Steps to reproduce the issue.</li>
+            <li>Screenshots or the console error if available.</li>
+          </ul>
+        </section>
     </main>
 
     <!-- Bottom Section -->
