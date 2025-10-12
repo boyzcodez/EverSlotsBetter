@@ -284,8 +284,8 @@ body {
 }
 
 .main-container {
-  max-width: 1200px; /* widened so the main game is larger */
-  width: 90%;
+  max-width: 2200px; /* widened so the main game is larger */
+  width: 100%;
   margin: 32px 0;
   padding: 32px;
   border-radius: 12px;
@@ -356,7 +356,7 @@ body {
 /* scale up pixel art GIFs while preserving aspect ratio */
 .side-gif { transform: translateY(0) scale(3); }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .side-gif { display: none; }
 }
 
@@ -418,7 +418,7 @@ body {
 /* Inline toast for notifications (placed inside .middle-section) */
 .game-toast {
   position: absolute;
-  top: 24px;
+  top: 48px;
   left: 50%;
   transform: translateX(-50%);
   min-width: 240px;
@@ -615,10 +615,6 @@ button:hover { background: var(--c36); }
   }
 
   .side-container {
-    display: none;
-  }
-
-  .side-gif {
     display: none;
   }
 
