@@ -609,12 +609,16 @@ button:hover { background: var(--c36); }
 }
 
 /* Mobile: hide side containers in layout, show in drawer */
-@media (max-width: 768px) {
+@media (max-width: 360px) {
   .middle-section {
     grid-template-columns: 1fr; /* single column layout on mobile */
   }
 
   .side-container {
+    display: none;
+  }
+
+  .side-gif {
     display: none;
   }
 
